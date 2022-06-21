@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Container, Row, Col, Carousel } from "react-bootstrap"
+import { Container, Row, Col, Carousel, Card, Button } from "react-bootstrap"
 import booksArray from "../Data/fantasy.json"
 import historyArray from "../Data/history.json"
 import horrorArray from "../Data/horror.json"
@@ -10,7 +10,25 @@ import scifiArray from "../Data/scifi.json"
 export default class LastestRelease extends Component {
     render() {
         return (
+
             <Container>
+                <Row>
+                    {booksArray.slice(0, 20).map(book => (
+                        <Col key={book.asin} xs={6} md={4} lg={3} className="d-flex">
+                            <Card>
+                                <Card.Img variant="top" src={book.img} style={{ height: "220px", objectFit: "cover", width: "auto" }} />
+                                <Card.Body>
+                                    <Card.Title>{book.title}</Card.Title>
+                                    <Button variant="primary">Buy</Button>
+                                </Card.Body>
+                            </Card>
+
+                        </Col>
+                    ))
+                    }
+                </Row>
+            </Container>
+            /*<Container>
                 <h4 className="text-center mb-3">Explore Fantasy Books Here</h4>
                 <Row className="justify-content-center">
                     <Col xs={6} md={4} lg={3}>
@@ -24,9 +42,7 @@ export default class LastestRelease extends Component {
                         </Carousel>
                     </Col>
                 </Row>
-            </Container>
-
-
+                            </Container>*/
         )
     }
 }
