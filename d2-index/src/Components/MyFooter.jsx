@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Card, CardGroup } from 'react-bootstrap'
+import { Card, CardGroup } from 'react-bootstrap';
 
 class MyFooter extends Component {
     render() {
